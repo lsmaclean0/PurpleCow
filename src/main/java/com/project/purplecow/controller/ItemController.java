@@ -5,6 +5,7 @@ import com.project.purplecow.repository.ItemRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ItemController {
@@ -22,6 +23,11 @@ public class ItemController {
     @GetMapping("/items")
     List<Item> AllItems() {
         return repository.findAll();
+    }
+
+    @GetMapping("/item/{id}")
+    Optional<Item> getById(@PathVariable Long id) {
+        return repository.findById(id);
     }
 
     /**
@@ -62,9 +68,5 @@ public class ItemController {
     void removeItem(@PathVariable Long id) {
         repository.deleteById(id);
     }
-
-
-
-
 
 }
