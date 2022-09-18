@@ -1,0 +1,9 @@
+version: '1'
+services:
+  purplecow-server:
+    container_name: purplecow
+    build:
+      dockerfile: Dockerfile
+    image: purplecow:latest
+    ports:
+      - 3000:3000
